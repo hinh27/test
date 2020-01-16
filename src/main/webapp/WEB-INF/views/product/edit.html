@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit product</title>
+</head>
+<body>
+<h1>Edit product</h1>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/edit-product}" th:object="${product}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Tên hàng:</td>
+            <td><input type="text" th:field="*{tenHang}"/></td>
+        </tr>
+        <tr>
+            <td>Loại hàng:</td>
+            <td>
+                <select name="category">
+                    <option th:each="p : ${categorys}"
+                            th:value="${p.id}"
+                            th:text="${p.loaiHang}"
+                            th:selected="(${p.id} == *{category.id})"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Giá:</td>
+            <td><input type="text" th:field="*{gia}"/></td>
+        </tr>
+        <tr>
+            <td>Giá:</td>
+            <td><input type="text" th:field="*{gia}"/></td>
+        </tr>
+        <tr>
+            <td>Số lượng:</td>
+            <td><input type="text" th:field="*{soLuong}"/></td>
+        </tr>
+        <tr>
+            <td>Mô tả:</td>
+            <td><input type="text" th:field="*{moTa}"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Sửa mặt hàng"></td>
+            <td>
+                <button><a href="/products">Thoát</a></button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

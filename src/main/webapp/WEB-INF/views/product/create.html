@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create product</title>
+</head>
+<body>
+<h1>Create product</h1>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-product}" th:object="${product}" method="post">
+    <table>
+        <tr>
+            <td>Tên hàng:</td>
+            <td><input type="text" th:field="*{tenHang}"/></td>
+        </tr>
+        <tr>
+            <td>Loại hàng:</td>
+            <td>
+                <select th:field="*{category}">
+                    <option th:each="p : ${categories}" th:value="${p.id}" th:text="${p.loaiHang}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Giá:</td>
+            <td><input type="text" th:field="*{gia}"/></td>
+        </tr>
+        <tr>
+            <td>Số lượng:</td>
+            <td><input type="text" th:field="*{soLuong}"/></td>
+        </tr>
+        <tr>
+            <td>Mô tả:</td>
+            <td><input type="text" th:field="*{moTa}"/></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Thêm mặt hàng"></td>
+            <td>
+                <button><a href="/products">Thoát</a></button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
