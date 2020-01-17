@@ -7,8 +7,12 @@
 <body>
 <h1>Delete product</h1>
 <h2>Are you sure?</h2>
+<p>
+    <a href="/products">Product list</a>
+</p>
 <form th:action="@{/delete-product}" th:object="${product}" method="post">
     <input th:type="hidden" name="id" th:field="*{id}">
+
     <table>
         <tr>
             <td>Tên Hàng:</td>
@@ -19,10 +23,8 @@
             <td th:text="${product.category.loaiHang}"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Xóa mặt hàng"></td>
-            <td>
-                <button><a href="/products">Thoát</a></button>
-            </td>
+            <td></td>
+            <td><input type="submit" value="Delete product"></td>
         </tr>
     </table>
 </form>

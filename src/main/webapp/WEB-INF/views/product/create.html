@@ -6,11 +6,14 @@
 </head>
 <body>
 <h1>Create product</h1>
+<p>
+    <a href="/products">Product list</a>
+</p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
 <form th:action="@{/create-product}" th:object="${product}" method="post">
-    <table>
+    <table border="1">
         <tr>
             <td>Tên hàng:</td>
             <td><input type="text" th:field="*{tenHang}"/></td>
@@ -37,7 +40,7 @@
         </tr>
 
         <tr>
-            <td><input type="submit" value="Thêm mặt hàng"></td>
+            <td><input type="submit" value="Create product"></td>
             <td>
                 <button><a href="/products">Thoát</a></button>
             </td>

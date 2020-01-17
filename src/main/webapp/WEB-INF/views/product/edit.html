@@ -6,6 +6,9 @@
 </head>
 <body>
 <h1>Edit product</h1>
+<p>
+    <a href="/products">Product list</a>
+</p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
@@ -18,9 +21,9 @@
         </tr>
         <tr>
             <td>Loại hàng:</td>
-            <td>
+            <td>2
                 <select name="category">
-                    <option th:each="p : ${categorys}"
+                    <option th:each="p : ${categories}"
                             th:value="${p.id}"
                             th:text="${p.loaiHang}"
                             th:selected="(${p.id} == *{category.id})"></option>
@@ -31,10 +34,7 @@
             <td>Giá:</td>
             <td><input type="text" th:field="*{gia}"/></td>
         </tr>
-        <tr>
-            <td>Giá:</td>
-            <td><input type="text" th:field="*{gia}"/></td>
-        </tr>
+
         <tr>
             <td>Số lượng:</td>
             <td><input type="text" th:field="*{soLuong}"/></td>
@@ -45,10 +45,8 @@
         </tr>
 
         <tr>
-            <td><input type="submit" value="Sửa mặt hàng"></td>
-            <td>
-                <button><a href="/products">Thoát</a></button>
-            </td>
+            <td></td>
+            <td><input type="submit" value="Update product"></td>
         </tr>
     </table>
 </form>

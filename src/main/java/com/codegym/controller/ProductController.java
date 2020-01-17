@@ -72,14 +72,13 @@ public class ProductController {
     }
 
     @PostMapping("/edit-product")
-    public ModelAndView updateProduct(@ModelAttribute("product") Product product){
+    public ModelAndView updateCustomer(@ModelAttribute("product") Product product){
         productService.save(product);
         ModelAndView modelAndView = new ModelAndView("/product/edit");
         modelAndView.addObject("product", product);
         modelAndView.addObject("message", "Product updated successfully");
         return modelAndView;
     }
-
     @GetMapping("/delete-product/{id}")
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Product product = productService.findById(id);
